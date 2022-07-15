@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -23,10 +23,11 @@ expand = true
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 521, 540 )
+position = Vector2( 960, 540 )
+scale = Vector2( 2, 2 )
 
 [node name="StartPosition2D" type="Position2D" parent="YSort"]
-position = Vector2( 512, 540 )
+position = Vector2( 960, 540 )
 
 [node name="MobPath2D" type="Path2D" parent="YSort"]
 curve = SubResource( 1 )
