@@ -19,21 +19,21 @@ class IdleStatus:
 			new_position = host.global_position + Vector2(host.stepX, 0)
 			host.cube_display.rotate_right()
 			MovingStatus.new(new_position).attach(host)
-		
+
 		elif Input.is_action_pressed("move_left"):
 			new_position = host.global_position + Vector2(-host.stepX, 0)
 			host.cube_display.rotate_left()
 			MovingStatus.new(new_position).attach(host)
-		
+
 		elif Input.is_action_pressed("move_down"):
 			new_position = host.global_position + Vector2(0, host.stepY)
 			host.cube_display.rotate_down()
 			MovingStatus.new(new_position).attach(host)
-		
+
 		elif Input.is_action_pressed("move_up"):
 			new_position = host.global_position + Vector2(0, -host.stepY)
 			host.cube_display.rotate_up()
-			MovingStatus.new(new_position).attach(host)	
+			MovingStatus.new(new_position).attach(host)
 
 class MovingStatus:
 	extends Status
@@ -50,14 +50,17 @@ class MovingStatus:
 			tween.tween_callback(IdleStatus.new(), "attach", [host])
 		else:
 			Ticker.once(self, 0.5).then(IdleStatus.new(), "attach", [host])
-		
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	IdleStatus.new().attach(self)
 	hide()
 
 func start(pos):
-	position = pos
+	# snap position to step grid
+	global_position.x = stepify(pos.x, stepX)
+	global_position.y = stepify(pos.y, stepY)
+
 	show()
 	$CollisionShape2D.disabled = false
 

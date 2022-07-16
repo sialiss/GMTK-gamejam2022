@@ -7,12 +7,14 @@
 
 [node name="Mesh" type="MeshInstance" parent="."]
 unique_name_in_owner = true
+material_override = ExtResource( 2 )
 mesh = ExtResource( 1 )
-material/0 = ExtResource( 2 )
-material/1 = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 0.447213, 0.894428, 0, -0.894428, 0.447213, 0, 4.5, 2 )
 projection = 1
 size = 1.348
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.503355, -0.728444, 0.464762, -0.0402868, 0.5175, 0.854734, -0.86314, -0.448959, 0.23114, 0, 0, 0 )
