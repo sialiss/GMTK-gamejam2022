@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal start_game
 signal close_game
+signal go_to_credits
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +43,5 @@ func _on_MessageTimer_timeout():
 func _on_ExitButton_pressed():
 	emit_signal("close_game")
 
-
 func _on_Credits_pressed():
-	pass # Replace with function body.
+	emit_signal("go_to_credits")

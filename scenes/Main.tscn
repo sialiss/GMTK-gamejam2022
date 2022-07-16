@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Enemy/Hat/EnemyHat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/menum.mp3" type="AudioStream" id=7]
+[ext_resource path="res://scenes/Credits.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -58,8 +59,13 @@ stream = ExtResource( 4 )
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 
+[node name="Credits" parent="." instance=ExtResource( 8 )]
+visible = false
+
 [connection signal="hit" from="YSort/Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="close_game" from="HUD" to="." method="_on_HUD_close_game"]
+[connection signal="go_to_credits" from="HUD" to="." method="_on_HUD_go_to_credits"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="go_to_menu" from="Credits" to="." method="_on_Credits_go_to_menu"]

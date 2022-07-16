@@ -6,10 +6,11 @@ var score
 
 func _ready():
 	# $HUD/StartButton.hide()
-	# $HUD/Credits.hide()
+	# $HUD/CreditsButton.hide()
 	# $HUD/Gameochka.hide()
 	# new_game()
 	$MenuMusic.play()
+	$Credits.hide()
 
 # Called when the node enters the scene tree for the first time.
 
@@ -30,7 +31,6 @@ func game_over():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
 
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
@@ -67,3 +67,9 @@ func _on_Player_hit():
 
 func _on_HUD_close_game():
 	get_tree().quit()
+
+func _on_HUD_go_to_credits():
+	$Credits.show()
+
+func _on_Credits_go_to_menu():
+	$Credits.hide()

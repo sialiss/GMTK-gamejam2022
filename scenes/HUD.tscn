@@ -55,7 +55,7 @@ margin_bottom = 64.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
-[node name="Credits" type="Button" parent="."]
+[node name="CreditsButton" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -69,7 +69,7 @@ text = "Credits"
 
 [node name="Gameochka" type="RichTextLabel" parent="."]
 margin_left = 728.0
-margin_top = 480.0
+margin_top = 472.0
 margin_right = 976.0
 margin_bottom = 536.0
 custom_fonts/normal_font = SubResource( 2 )
@@ -78,4 +78,4 @@ text = "Igrochka"
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_Credits_pressed"]
