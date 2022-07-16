@@ -4,17 +4,17 @@
 [ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=3]
 [ext_resource path="res://sounds/worstmusiceverBUTFAST.mp3" type="AudioStream" id=4]
-[ext_resource path="res://scenes/Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Enemy/Hat/EnemyHat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, -8, -8, 0, 0, 0, 0, 968, -8, 0, 0, 0, 0, 968, 544, 0, 0, 0, 0, -8, 544, 0, 0, 0, 0, -8, -8 )
 }
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
-mob_scene = ExtResource( 5 )
+mob_scenes = [ ExtResource( 5 ) ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -29,15 +29,16 @@ expand = true
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 960, 540 )
+position = Vector2( 349, 253 )
 
 [node name="StartPosition2D" type="Position2D" parent="YSort"]
-position = Vector2( 960, 540 )
+position = Vector2( 480, 280 )
 
 [node name="MobPath2D" type="Path2D" parent="YSort"]
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="YSort/MobPath2D"]
+position = Vector2( -8, -8 )
 
 [node name="ScoreTimer" type="Timer" parent="."]
 

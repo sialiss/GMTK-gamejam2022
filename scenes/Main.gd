@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(PackedScene) var mob_scene
+export(Array, PackedScene) var mob_scenes = []
 var score
 
 func _ready():
@@ -30,7 +30,7 @@ func game_over():
 
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
-	var mob = mob_scene.instance()
+	var mob = mob_scenes[randi() % mob_scenes.size()].instance()
 
 	# Choose a random location on Path2D.
 	var mob_spawn_location = get_node("YSort/MobPath2D/PathFollow2D")
@@ -51,7 +51,7 @@ func _on_MobTimer_timeout():
 	mob.linear_velocity = velocity.rotated(direction)
 
 	# Spawn the mob by adding it to the Main scene.
-	add_child(mob)
+	$YSort.add_child(mob)
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
