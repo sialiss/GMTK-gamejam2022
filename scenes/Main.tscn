@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=3]
 [ext_resource path="res://sounds/worstmusiceverBUTFAST.mp3" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -50,6 +51,10 @@ one_shot = true
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[connection signal="hit" from="YSort/Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="close_game" from="HUD" to="." method="_on_HUD_close_game"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
