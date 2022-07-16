@@ -32,6 +32,8 @@ func update_score(score):
 
 func _on_StartButton_pressed():
     $StartButton.hide()
+    $Credits.hide()
+    $Gameochka.hide()
     emit_signal("start_game")
 
 func _on_MessageTimer_timeout():
@@ -39,3 +41,7 @@ func _on_MessageTimer_timeout():
 
 func _on_ExitButton_pressed():
 	emit_signal("close_game")
+
+
+func _on_Credits_pressed():
+	pass # Replace with function body.

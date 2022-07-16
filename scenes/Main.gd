@@ -6,6 +6,8 @@ var score
 
 func _ready():
 	$HUD/StartButton.hide()
+	$HUD/Credits.hide()
+	$HUD/Gameochka.hide()
 	new_game()
 
 # Called when the node enters the scene tree for the first time.
