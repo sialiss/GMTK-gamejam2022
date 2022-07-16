@@ -7,10 +7,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 64 )
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-stepX = 94
-stepY = 85
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -20,3 +18,19 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 100, 0 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -100, 0 )
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 100 )
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -100 )

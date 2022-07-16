@@ -1,9 +1,21 @@
-extends Area2D
+extends KinematicBody2D
+signal hit
 
-export var stepX = 90
-export var stepY = 120
+export var stepX = 94
+export var stepY = 85
+
+# Attack variables
+var attack_cooldown_time = 100
+var next_attack_time = 0
 
 onready var cube_display = $CubeDisplay/Viewport/CubeDisplay3D
+
+func _on_Player_body_entered(_body):
+    # hide() # Player disappears after being hit.
+    emit_signal("hit")
+    # Must be deferred as we can't change physics properties on a physics callback.
+    # $CollisionShape2D.set_deferred("disabled", true)
+
 class IdleStatus:
 	extends Status
 
@@ -48,10 +60,9 @@ class MovingStatus:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	IdleStatus.new().attach(self)
-	
-	# hide(
+	hide()
 
 func start(pos):
 	position = pos
-	# show()
+	show()
 	$CollisionShape2D.disabled = false
