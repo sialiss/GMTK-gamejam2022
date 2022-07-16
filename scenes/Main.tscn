@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://20201125__Ei8FXCL2jB.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=2]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
