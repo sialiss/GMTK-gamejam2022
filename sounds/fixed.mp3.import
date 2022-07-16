@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fixed.mp3-7c2d3502e3ddf69c08d560bc79160e56.mp3str"
+
+[deps]
+
+source_file="res://sounds/fixed.mp3"
+dest_files=[ "res://.import/fixed.mp3-7c2d3502e3ddf69c08d560bc79160e56.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

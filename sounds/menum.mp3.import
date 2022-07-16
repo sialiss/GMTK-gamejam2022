@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/menum.mp3-833ae1f2a69b70507b5294344a4df500.mp3str"
+
+[deps]
+
+source_file="res://sounds/menum.mp3"
+dest_files=[ "res://.import/menum.mp3-833ae1f2a69b70507b5294344a4df500.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
