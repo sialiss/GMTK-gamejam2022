@@ -9,6 +9,8 @@ extents = Vector2( 48, 64 )
 
 [node name="Player" type="Area2D"]
 script = ExtResource( 2 )
+stepX = 94
+stepY = 85
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
