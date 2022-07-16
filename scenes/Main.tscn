@@ -24,7 +24,6 @@ expand = true
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 960, 540 )
-scale = Vector2( 2, 2 )
 
 [node name="StartPosition2D" type="Position2D" parent="YSort"]
 position = Vector2( 960, 540 )
