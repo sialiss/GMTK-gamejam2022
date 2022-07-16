@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pawn.obj-d318a84a5b85f22c9ea7d59944b1d58b.mesh"
+
+[deps]
+
+files=[ "res://.import/pawn.obj-d318a84a5b85f22c9ea7d59944b1d58b.mesh" ]
+
+source_file="res://scenes/Enemy/Pawn/pawn.obj"
+dest_files=[ "res://.import/pawn.obj-d318a84a5b85f22c9ea7d59944b1d58b.mesh", "res://.import/pawn.obj-d318a84a5b85f22c9ea7d59944b1d58b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

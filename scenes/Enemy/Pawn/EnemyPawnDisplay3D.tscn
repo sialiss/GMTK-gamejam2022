@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Enemy/Pawn/pawn.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/Enemy/Pawn/base_material.tres" type="Material" id=2]
+
+[node name="EnemyPawnDisplay3D" type="Spatial"]
+
+[node name="Mesh" type="MeshInstance" parent="."]
+unique_name_in_owner = true
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 0.447213, 0.894428, 0, -0.894428, 0.447213, 0, 4.5, 2 )
+projection = 1
+size = 1.348
