@@ -4,6 +4,7 @@
 [ext_resource path="res://scenes/dice/CubeDisplay3D.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 1 )
@@ -20,4 +21,4 @@ material/0 = SubResource( 2 )
 unique_name_in_owner = true
 transform = Transform( 1, 0, 0, 0, 0.447213, 0.894428, 0, -0.894428, 0.447213, 0, 4, 2 )
 projection = 1
-size = 2.695
+size = 1.348
