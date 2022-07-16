@@ -3,7 +3,6 @@ extends Area2D
 export var stepX = 90
 export var stepY = 120
 
-var screen_size
 onready var cube_display = $CubeDisplay/Viewport/CubeDisplay3D
 class IdleStatus:
 	extends Status
@@ -28,26 +27,29 @@ class IdleStatus:
 		elif Input.is_action_pressed("move_up"):
 			new_position = host.global_position + Vector2(0, -host.stepY)
 			host.cube_display.rotate_up()
-			MovingStatus.new(new_position).attach(host)		
+			MovingStatus.new(new_position).attach(host)	
 
 class MovingStatus:
 	extends Status
 	var new_position
+	var screen_size
 
 	func _init(position):
 		new_position = position
 
 	func _ready():
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(host, "global_position", new_position, 0.5)
-		tween.tween_callback(IdleStatus.new(), "attach", [host])
-
+		if host.get_viewport_rect().has_point(new_position):
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(host, "global_position", new_position, 0.5)
+			tween.tween_callback(IdleStatus.new(), "attach", [host])
+		else:
+			Ticker.once(self, 0.5).then(IdleStatus.new(), "attach", [host])
+		
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
 	IdleStatus.new().attach(self)
 	
-	# hide()
+	# hide(
 
 func start(pos):
 	position = pos
