@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/Enemy/Hat/EnemyHatDisplay3D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Enemy/Hat/EnemyHatDisplay.gd" type="Script" id=3]
+
+[sub_resource type="World" id=1]
+environment = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[node name="EnemyHatDisplay" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 64, 64 )
+own_world = true
+world = SubResource( 1 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="EnemyHatDisplay3D" parent="Viewport" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 2 )
