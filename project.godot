@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "StatusMachina",
 "language": "GDScript",
 "path": "res://utils/StatusMachina/StatusMachina.gd"
+}, {
+"base": "Reference",
+"class": "Ticker",
+"language": "GDScript",
+"path": "res://utils/Ticker/Ticker.gd"
 } ]
 _global_script_class_icons={
 "Status": "",
-"StatusMachina": ""
+"StatusMachina": "",
+"Ticker": ""
 }
 
 [application]
