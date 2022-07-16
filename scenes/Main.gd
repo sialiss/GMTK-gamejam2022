@@ -5,12 +5,11 @@ export(Array, PackedScene) var mob_scenes = []
 var score
 
 func _ready():
-	# $HUD/StartButton.hide()
-	# $HUD/CreditsButton.hide()
-	# $HUD/Gameochka.hide()
-	# new_game()
 	$MenuMusic.play()
 	$Credits.hide()
+	randomize()
+
+	# $HUD._on_StartButton_pressed()
 
 # Called when the node enters the scene tree for the first time.
 
@@ -26,7 +25,11 @@ func new_game():
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	$YSort/Player.hide()
 	$HUD.show_game_over()
+
+	$Music.stop()
+	$MenuMusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

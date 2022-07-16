@@ -25,8 +25,8 @@ align = 1
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -39.0
-margin_bottom = 39.0
+margin_top = -166.0
+margin_bottom = -88.0
 custom_fonts/font = SubResource( 1 )
 align = 1
 autowrap = true
@@ -37,9 +37,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -88.0
-margin_top = -260.0
+margin_top = -276.0
 margin_right = 88.0
-margin_bottom = -193.0
+margin_bottom = -209.0
 custom_fonts/font = SubResource( 1 )
 text = "Start"
 
@@ -49,11 +49,21 @@ one_shot = true
 [node name="CloseButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -116.0
-margin_right = -2.0
-margin_bottom = 64.0
+margin_left = -536.0
+margin_top = 456.0
+margin_right = -422.0
+margin_bottom = 520.0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
+
+[node name="MenuButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -152.0
+margin_right = 1.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
 
 [node name="CreditsButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -61,9 +71,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -96.0
-margin_top = -140.0
+margin_top = -180.0
 margin_right = 104.0
-margin_bottom = -72.0
+margin_bottom = -112.0
 custom_fonts/font = SubResource( 1 )
 text = "Credits"
 
@@ -78,4 +88,5 @@ text = "Igrochka"
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_Credits_pressed"]
