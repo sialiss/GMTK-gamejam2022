@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sounds/fixed.mp3" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Enemy/Hat/EnemyHat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/menum.mp3" type="AudioStream" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -43,7 +44,7 @@ position = Vector2( -8, -8 )
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -55,6 +56,7 @@ one_shot = true
 stream = ExtResource( 4 )
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="hit" from="YSort/Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

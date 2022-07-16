@@ -9,7 +9,7 @@ func _ready():
 	# $HUD/Credits.hide()
 	# $HUD/Gameochka.hide()
 	# new_game()
-	pass
+	$MenuMusic.play()
 
 # Called when the node enters the scene tree for the first time.
 
@@ -17,6 +17,7 @@ func new_game():
 	score = 0
 	$YSort/Player.start($YSort/StartPosition2D.position)
 	$StartTimer.start()
+	$MenuMusic.stop()
 	$Music.play()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")

@@ -43,13 +43,13 @@ custom_fonts/font = SubResource( 3 )
 text = "Camellia"
 
 [node name="LinkButton3" type="LinkButton" parent="."]
-margin_left = 360.0
+margin_left = 416.0
 margin_top = 264.0
-margin_right = 572.0
+margin_right = 512.0
 margin_bottom = 328.0
 focus_mode = 2
 custom_fonts/font = SubResource( 3 )
-text = "och-och"
+text = "och"
 
 [node name="LinkButton4" type="LinkButton" parent="."]
 margin_left = 352.0
