@@ -18,7 +18,7 @@ func harm(damage: float):
 func knockback(from: Node2D, damage: float):
 	var v = (self.global_position - from.global_position)
 	var direction = v.normalized()
-	var force = 20000 / v.length()
+	var force = 200000 / v.length()
 	apply_impulse((-direction + Vector2(randf(),randf()))*32, direction * force)
 
 func die():
