@@ -102,6 +102,5 @@ func use_ability():
 			ability.instance().attach(self)
 
 func update_bar(change: float):
-	print("Осталось %d здоровья" % health)
 	$Health/HP.text = "%d/%d" % [health, max_health]
 	$Health.move_pawn(change)
