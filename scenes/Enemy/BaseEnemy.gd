@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name Enemy
 
 export var health = 1
+export var damage = 5
 
 # Places the newly spawned enemy at the location
 func set_location(location: Node2D):

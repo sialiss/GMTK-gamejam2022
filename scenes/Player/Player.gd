@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Signals
-signal hit
+signal die
 
 # Children
 onready var cube_display = $CubeDisplay/Viewport/CubeDisplay3D
@@ -11,9 +11,9 @@ onready var ability_timer = $AbilityTimer
 export var stepX = 94
 export var stepY = 85
 export(Array, PackedScene) var abilities = []
+export var health = 100
 
 # Variables
-
 
 # States
 
@@ -77,9 +77,15 @@ func start(pos: Vector2):
 	$CollisionShape2D.disabled = false
 
 # Called when touched an enemy
-func _on_Area2D_body_entered(_body):
-	# hide() # Player disappears after being hit.
-	emit_signal("hit")
+func _on_Area2D_body_entered(body):
+	health -= body.damage
+	print("Осталось %d здоровья" % health)
+	if health <= 0:
+		die()
+
+func die():
+	emit_signal("die")
+	queue_free()
 
 func use_ability():
 	var ability_id = cube_display.get_number()

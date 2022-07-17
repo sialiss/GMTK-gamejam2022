@@ -28,26 +28,6 @@ shape = SubResource( 1 )
 [node name="CubeDisplay" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -10 )
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 0, -10 )
-enabled = true
-cast_to = Vector2( 100, 0 )
-
-[node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2( 0, -10 )
-enabled = true
-cast_to = Vector2( -100, 0 )
-
-[node name="RayCast2D3" type="RayCast2D" parent="."]
-position = Vector2( 0, -10 )
-enabled = true
-cast_to = Vector2( 0, 100 )
-
-[node name="RayCast2D4" type="RayCast2D" parent="."]
-position = Vector2( 0, -10 )
-enabled = true
-cast_to = Vector2( 0, -100 )
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0, -10 )
 collision_mask = 2

@@ -17,7 +17,10 @@ func new_game():
 	$HUD.show_message_with_timer("Get Ready")
 
 func game_over():
-	Score.score = int($HUD/ScoreLabel.text)
+	$Music.stop()
+	$YSort/Player.die()
+	# $DeathSound.play()
+	# yield($DeathSound, "finished")
 	if Score.score > Score.best_score:
 		Score.best_score = Score.score
 	
@@ -42,5 +45,5 @@ func _on_StartTimer_timeout():
 
 func _on_Player_hit():
 	Score.score += 1
-	$HUD.update_score(Score.score)
+	# $HUD.update_score(Score.score)
 
