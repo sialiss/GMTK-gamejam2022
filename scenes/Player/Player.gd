@@ -11,7 +11,8 @@ onready var ability_timer = $AbilityTimer
 export var stepX = 94
 export var stepY = 85
 export(Array, PackedScene) var abilities = []
-export var health = 10
+export var max_health = 10
+onready var health = max_health
 
 # Variables
 
@@ -75,6 +76,10 @@ func start(pos: Vector2):
 	show()
 	ability_timer.start()
 	$CollisionShape2D.disabled = false
+
+func heal(hp: float):
+	health = clamp(health+hp, 0, max_health)
+	print("Осталось %d здоровья" % health)
 
 # Called when touched an enemy
 func _on_Area2D_body_entered(body):

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Enemy/BaseEnemy.gd"
 }, {
+"base": "Area2D",
+"class": "HealingArea",
+"language": "GDScript",
+"path": "res://scenes/Player/Abilities/HealingArea.gd"
+}, {
 "base": "Particles2D",
 "class": "OneshotParticles",
 "language": "GDScript",
@@ -53,6 +58,7 @@ _global_script_class_icons={
 "Ability": "",
 "AttackArea": "",
 "Enemy": "",
+"HealingArea": "",
 "OneshotParticles": "",
 "ParticleTimer": "",
 "Status": "",
