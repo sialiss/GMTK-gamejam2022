@@ -12,4 +12,5 @@ func set_location(location: Node2D):
 func harm(damage: float):
 	health = max(health - damage, 0)
 	if health <= 0:
+		Score.score += 1
 		queue_free()
