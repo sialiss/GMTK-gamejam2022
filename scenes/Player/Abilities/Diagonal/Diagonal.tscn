@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Player/Abilities/ParticleTimer.gd" type="Script" id=1]
 [ext_resource path="res://assets/dice/dice.png" type="Texture" id=2]
@@ -7,10 +7,10 @@
 [ext_resource path="res://scenes/Player/Abilities/Ability.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 350 )
+extents = Vector2( 10, 400 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 350, 10 )
+extents = Vector2( 400, 10 )
 
 [sub_resource type="CanvasItemMaterial" id=3]
 particles_animation = true
@@ -42,6 +42,23 @@ angle = 720.0
 angle_random = 1.0
 scale_curve = SubResource( 5 )
 anim_offset = 1.0
+
+[sub_resource type="Animation" id=7]
+resource_name = "Activate"
+tracks/0/type = "method"
+tracks/0/path = NodePath("AttackArea")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
 
 [node name="OrthogonalAttackAbility" type="Node2D"]
 show_behind_parent = true
@@ -100,7 +117,6 @@ script = ExtResource( 3 )
 material = SubResource( 3 )
 position = Vector2( 83.4387, 83.4385 )
 rotation = -0.785408
-scale = Vector2( 1, 1 )
 amount = 50
 lifetime = 0.83
 explosiveness = 0.83
@@ -112,3 +128,7 @@ script = ExtResource( 3 )
 [node name="ParticleTimer" type="Node" parent="."]
 script = ExtResource( 1 )
 particles = [ NodePath("../OneshotParticles") ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Activate"
+anims/Activate = SubResource( 7 )
