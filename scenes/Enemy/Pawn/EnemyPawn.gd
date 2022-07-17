@@ -47,13 +47,13 @@ class StepStatus:
 		var angle = direction.angle() + rand_range(-TAU/4, TAU/4)
 		angle = stepify(angle, TAU/4)
 		var new_position = host.global_position + Vector2.RIGHT.rotated(angle)*host.step_size
+		new_position.x = stepify(new_position.x, host.step_size.x)
+		new_position.y = stepify(new_position.y, host.step_size.y)
 
-		# var direction = Vector2.RIGHT.rotated(TAU/4 * (randi()%4))
-		# var new_position = host.global_position + direction*host.step_size
-
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel(true)
 		tween.tween_property(host, "global_position", new_position, host.step_duration)
-		tween.tween_callback(self, "stop")
+		tween.tween_property(host, "global_rotation", 0.0, host.step_duration)
+		tween.chain().tween_callback(self, "stop")
 
 	func stop():
 		if host.Visibility.is_on_screen():
