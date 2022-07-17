@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Enemy
 
 onready var Visibility = $VisibilityNotifier2D
 
