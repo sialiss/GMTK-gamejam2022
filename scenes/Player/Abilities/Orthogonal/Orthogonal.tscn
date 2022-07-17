@@ -49,6 +49,7 @@ script = ExtResource( 1 )
 timer = NodePath("ParticleTimer")
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.3
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0

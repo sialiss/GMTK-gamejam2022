@@ -15,6 +15,15 @@ func set_location(location: Node2D):
 	global_position.x = stepify(location.global_position.x, step_size.x)
 	global_position.y = stepify(location.global_position.y, step_size.y)
 
+# Overriden to remove knockback
+func knockback(from: Node2D, damage: float):
+	if StatusMachina.find(self) is DeathStatus:
+		print(StatusMachina.find(self) is DeathStatus)
+		.knockback(from, damage)
+
+func die():
+	DeathStatus.new().attach(self)
+
 class IdleStatus:
 	extends Status
 
@@ -38,16 +47,25 @@ class StepStatus:
 		var angle = direction.angle() + rand_range(-TAU/4, TAU/4)
 		angle = stepify(angle, TAU/4)
 		var new_position = host.global_position + Vector2.RIGHT.rotated(angle)*host.step_size
+		new_position.x = stepify(new_position.x, host.step_size.x)
+		new_position.y = stepify(new_position.y, host.step_size.y)
 
-		# var direction = Vector2.RIGHT.rotated(TAU/4 * (randi()%4))
-		# var new_position = host.global_position + direction*host.step_size
-
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).set_parallel(true)
 		tween.tween_property(host, "global_position", new_position, host.step_duration)
-		tween.tween_callback(self, "stop")
+		tween.tween_property(host, "global_rotation", 0.0, host.step_duration)
+		tween.chain().tween_callback(self, "stop")
 
 	func stop():
 		if host.Visibility.is_on_screen():
 			IdleStatus.new().attach(host)
 		else:
 			host.queue_free()
+
+class DeathStatus:
+	extends Status
+
+	func _ready():
+		$"../CollisionShape2D".set_deferred("disabled", true)
+		var tween = create_tween()
+		tween.tween_property(host, "modulate", Color.transparent, 0.5)
+		tween.tween_callback(host, "queue_free")
