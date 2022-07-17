@@ -16,3 +16,15 @@ func _on_Menu_pressed():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_LinkButton_pressed():
+	OS.shell_open("https://github.com/sialiss/GMTK-gamejam2022")
+
+
+func _on_Blinkfox_pressed():
+	OS.shell_open("https://github.com/blink-fox")
+
+
+func _on_Camellia_pressed():
+	OS.shell_open("https://github.com/sialiss")
