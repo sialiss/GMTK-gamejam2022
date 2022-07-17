@@ -7,7 +7,7 @@
 environment = ExtResource( 2 )
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.160784, 0.662745, 0.145098, 1 )
+albedo_color = Color( 0.172549, 0.215686, 0.878431, 1 )
 metallic = 0.15
 metallic_specular = 0.31
 roughness = 0.36
