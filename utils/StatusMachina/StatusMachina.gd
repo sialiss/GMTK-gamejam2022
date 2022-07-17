@@ -11,6 +11,7 @@ static func detach(node: Node):
 	if old_status:
 		node.remove_child(old_status)
 		node.remove_meta("status")
+		old_status.queue_free()
 
 static func attach(node: Node, status):
 	status.host = node
