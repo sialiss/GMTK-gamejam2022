@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Menu/Credits.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 1 )
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0, 0.203922, 1 )
+
+[node name="LinkButton" type="LinkButton" parent="."]
+margin_left = 320.0
+margin_top = 24.0
+margin_right = 616.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 2 )
+text = "GitHub"
+
+[node name="Menu" type="Button" parent="."]
+margin_left = 288.0
+margin_top = 416.0
+margin_right = 664.0
+margin_bottom = 483.0
+custom_fonts/font = SubResource( 1 )
+text = "Back to menu"
+
+[node name="Gameochka" type="RichTextLabel" parent="."]
+margin_left = 728.0
+margin_top = 472.0
+margin_right = 960.0
+margin_bottom = 536.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "Igrochka"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 96.0
+margin_top = 168.0
+margin_right = 856.0
+margin_bottom = 352.0
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]Programming: [url={https://github.com/sialiss}]Camellia[/url], [url={https://github.com/och-och}]och[/url]
+Art: [url={https://github.com/och-och}]och[/url]
+Music: [url={https://github.com/blink-fox}]blink-fox[/url][/center]"
+text = "Programming: Camellia, och
+Art: och
+Music: blink-fox"
+
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]

@@ -1,23 +1,16 @@
 extends Node2D
 
-<<<<<<< Updated upstream
-onready var player = $YSort/Player
 
-=======
+onready var player = $YSort/Player
 var menu_scene = load("res://scenes/Menu/Menu.tscn")
->>>>>>> Stashed changes
 export(Array, PackedScene) var mob_scenes = []
 
 func _ready():
 	new_game()
 
 func new_game():
-<<<<<<< Updated upstream
 	player.start($YSort/StartPosition2D.position)
-=======
 	Score.score = 0
-	$HUD.update_score(Score.score)
->>>>>>> Stashed changes
 	$StartTimer.start()
 	$Music.play()
 	$HUD.update_score(Score.score)
