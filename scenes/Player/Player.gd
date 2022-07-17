@@ -63,6 +63,7 @@ class MovingStatus:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	IdleStatus.new().attach(self)
+	update_bar(0)
 	hide()
 
 # Called when the game is starting
@@ -102,4 +103,5 @@ func use_ability():
 
 func update_bar(change: float):
 	print("Осталось %d здоровья" % health)
+	$Health/HP.text = "%d/%d" % [health, max_health]
 	$Health.move_pawn(change)
