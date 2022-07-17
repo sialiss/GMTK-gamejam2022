@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/HUD.gd" type="Script" id=2]
-[ext_resource path="res://scenes/Health.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -39,8 +38,6 @@ margin_right = 1.0
 margin_bottom = 64.0
 custom_fonts/font = SubResource( 1 )
 text = "Menu"
-
-[node name="Health" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

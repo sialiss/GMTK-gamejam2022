@@ -11,7 +11,7 @@ onready var ability_timer = $AbilityTimer
 export var stepX = 94
 export var stepY = 85
 export(Array, PackedScene) var abilities = []
-export var max_health = 10
+export var max_health = 100
 onready var health = max_health
 
 # Variables
@@ -43,7 +43,6 @@ class IdleStatus:
 			host.cube_display.rotate_up()
 			MovingStatus.new(new_position).attach(host)
 
-
 class MovingStatus:
 	extends Status
 	var new_position
@@ -58,7 +57,6 @@ class MovingStatus:
 			tween.tween_callback(IdleStatus.new(), "attach", [host])
 		else:
 			Ticker.once(self, 0.5).then(IdleStatus.new(), "attach", [host])
-
 
 # Methods
 
@@ -79,12 +77,12 @@ func start(pos: Vector2):
 
 func heal(hp: float):
 	health = clamp(health+hp, 0, max_health)
-	print("Осталось %d здоровья" % health)
+	update_bar(-hp)
 
 # Called when touched an enemy
 func _on_Area2D_body_entered(body):
 	health -= body.damage
-	print("Осталось %d здоровья" % health)
+	update_bar(body.damage)
 	if health <= 0:
 		die()
 
@@ -101,3 +99,7 @@ func use_ability():
 		var ability = abilities[ability_id-1]
 		if ability is PackedScene:
 			ability.instance().attach(self)
+
+func update_bar(change: float):
+	print("Осталось %d здоровья" % health)
+	$Health.move_pawn(change)

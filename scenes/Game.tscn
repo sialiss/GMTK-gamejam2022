@@ -6,7 +6,7 @@
 [ext_resource path="res://sounds/fixed.mp3" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Enemy/Hat/EnemyHat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://sounds/DeathSound.mp3" type="AudioStream" id=7]
+[ext_resource path="res://sounds/death((.mp3" type="AudioStream" id=7]
 [ext_resource path="res://scenes/Enemy/Pawn/EnemyPawn.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]

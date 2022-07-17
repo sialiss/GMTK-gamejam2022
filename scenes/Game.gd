@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var player = $YSort/Player
 var menu_scene = load("res://scenes/Menu/Menu.tscn")
 export(Array, PackedScene) var mob_scenes = []
@@ -42,9 +41,6 @@ func _on_MobTimer_timeout():
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
-
-func _on_Player_hit():
-	pass
 
 func _on_HUD_go_to_menu():
 	$YSort/Player.die()
