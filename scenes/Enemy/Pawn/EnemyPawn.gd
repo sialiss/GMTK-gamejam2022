@@ -16,9 +16,8 @@ func set_location(location: Node2D):
 	global_position.y = stepify(location.global_position.y, step_size.y)
 
 # Overriden to remove knockback
-func knockback(from: Node2D, damage: float):
+func knockback(from: Vector2, damage: float):
 	if StatusMachina.find(self) is DeathStatus:
-		print(StatusMachina.find(self) is DeathStatus)
 		.knockback(from, damage)
 
 func die():

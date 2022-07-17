@@ -29,6 +29,7 @@ func on_collision(body: Node):
 	# if body != target:
 	# 	return
 	body.harm(damage)
+	body.knockback(global_position - Vector2(100, 0).rotated(global_rotation), damage)
 	destroy()
 
 func destroy():

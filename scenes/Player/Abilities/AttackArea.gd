@@ -10,7 +10,7 @@ func _ready():
 
 func harm(body: Node):
 	body.harm(damage)
-	body.knockback(self, damage)
+	body.knockback(global_position, damage)
 
 func start():
 	connect("body_entered", self, "harm")
