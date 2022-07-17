@@ -13,4 +13,13 @@ func harm(damage: float):
 	health = max(health - damage, 0)
 	if health <= 0:
 		Score.score += 1
-		queue_free()
+		die()
+
+func knockback(from: Node2D, damage: float):
+	var v = (self.global_position - from.global_position)
+	var direction = v.normalized()
+	var force = 20000 / v.length()
+	apply_impulse((-direction + Vector2(randf(),randf()))*32, direction * force)
+
+func die():
+	queue_free()

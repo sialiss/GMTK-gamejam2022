@@ -15,6 +15,15 @@ func set_location(location: Node2D):
 	global_position.x = stepify(location.global_position.x, step_size.x)
 	global_position.y = stepify(location.global_position.y, step_size.y)
 
+# Overriden to remove knockback
+func knockback(from: Node2D, damage: float):
+	if StatusMachina.find(self) is DeathStatus:
+		print(StatusMachina.find(self) is DeathStatus)
+		.knockback(from, damage)
+
+func die():
+	DeathStatus.new().attach(self)
+
 class IdleStatus:
 	extends Status
 
@@ -51,3 +60,12 @@ class StepStatus:
 			IdleStatus.new().attach(host)
 		else:
 			host.queue_free()
+
+class DeathStatus:
+	extends Status
+
+	func _ready():
+		$"../CollisionShape2D".set_deferred("disabled", true)
+		var tween = create_tween()
+		tween.tween_property(host, "modulate", Color.transparent, 0.5)
+		tween.tween_callback(host, "queue_free")

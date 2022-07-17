@@ -10,6 +10,7 @@ func _ready():
 
 func harm(body: Node):
 	body.harm(damage)
+	body.knockback(self, damage)
 
 func start():
 	connect("body_entered", self, "harm")
