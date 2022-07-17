@@ -63,12 +63,15 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK-gamejam2022"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/Menu/Menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Score="*res://utils/Score.gd"
 
 [debug]
 
-gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
 
 [display]

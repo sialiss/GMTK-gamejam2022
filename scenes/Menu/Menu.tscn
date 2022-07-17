@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sounds/menum.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scenes/Menu/Credits.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/Menu/Menu.gd" type="Script" id=4]
+[ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="Credits" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+
+[node name="Message" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -166.0
+margin_bottom = -88.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+autowrap = true
+
+[node name="StartButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -88.0
+margin_top = -276.0
+margin_right = 88.0
+margin_bottom = -209.0
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="CloseButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -536.0
+margin_top = 456.0
+margin_right = -422.0
+margin_bottom = 520.0
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[node name="CreditsButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -180.0
+margin_right = 104.0
+margin_bottom = -112.0
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+
+[node name="Gameochka" type="RichTextLabel" parent="."]
+margin_left = 728.0
+margin_top = 472.0
+margin_right = 976.0
+margin_bottom = 536.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Igrochka"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+
+[connection signal="go_to_menu" from="Credits" to="." method="_on_Credits_go_to_menu"]
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]

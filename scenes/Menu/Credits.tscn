@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/Credits.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Menu/Credits.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=2]
 size = 80
@@ -46,7 +46,7 @@ text = "Back to menu"
 [node name="Gameochka" type="RichTextLabel" parent="."]
 margin_left = 728.0
 margin_top = 472.0
-margin_right = 976.0
+margin_right = 960.0
 margin_bottom = 536.0
 custom_fonts/normal_font = SubResource( 4 )
 text = "Igrochka"
