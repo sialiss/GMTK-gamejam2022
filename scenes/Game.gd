@@ -17,7 +17,6 @@ func new_game():
 
 func game_over():
 	$Music.stop()
-	$YSort/Player.die()
 	$DeathSound.stream.loop = false
 	$DeathSound.play()
 	yield($DeathSound, "finished")
@@ -46,3 +45,5 @@ func _on_StartTimer_timeout():
 func _on_Player_hit():
 	pass
 
+func _on_HUD_go_to_menu():
+	$YSort/Player.die()

@@ -11,7 +11,7 @@ onready var ability_timer = $AbilityTimer
 export var stepX = 94
 export var stepY = 85
 export(Array, PackedScene) var abilities = []
-export var health = 100
+export var health = 10
 
 # Variables
 
