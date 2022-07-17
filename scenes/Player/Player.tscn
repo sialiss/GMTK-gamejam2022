@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player/Abilities/Circle/Circle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Player/Abilities/Diagonal/Diagonal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Player/Abilities/Knight/Knight.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Player/Abilities/Healing/Healing.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Player/Abilities/Missile/MissileAbility.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 21.5 )
@@ -19,7 +20,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 stepX = 48
 stepY = 43
-abilities = [ ExtResource( 1 ), ExtResource( 7 ), null, ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+abilities = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="AbilityTimer" type="Timer" parent="."]
 wait_time = 1.5
