@@ -19,8 +19,9 @@ func new_game():
 func game_over():
 	$Music.stop()
 	$YSort/Player.die()
-	# $DeathSound.play()
-	# yield($DeathSound, "finished")
+	$DeathSound.stream.loop = false
+	$DeathSound.play()
+	yield($DeathSound, "finished")
 	if Score.score > Score.best_score:
 		Score.best_score = Score.score
 	
