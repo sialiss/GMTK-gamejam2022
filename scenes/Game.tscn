@@ -22,6 +22,7 @@ mob_scenes = [ ExtResource( 5 ), ExtResource( 9 ) ]
 layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.870588, 0.870588, 0.870588, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
