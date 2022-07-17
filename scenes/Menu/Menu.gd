@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 var game_scene = load("res://scenes/Game.tscn")
-var menu_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +8,6 @@ func _ready():
 	$Credits.hide()
 	show_best_score()
 	update_score()
-	menu_scene = get_tree().get_current_scene()
 
 func show_message(text):
 	$Message.text = text

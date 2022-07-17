@@ -19,3 +19,11 @@ func _on_MessageTimer_timeout():
 
 func _on_MenuButton_pressed():
 	emit_signal("go_to_menu")
+
+func get_ready():
+	$ScoreLabel.hide()
+	$MenuButton.hide()
+	show_message_with_timer("Get Ready")
+	yield($MessageTimer, "timeout")
+	$ScoreLabel.show()
+	$MenuButton.show()

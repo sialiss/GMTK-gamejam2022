@@ -13,10 +13,11 @@ func new_game():
 	Score.score = 0
 	$StartTimer.start()
 	$Music.play()
-	$HUD.show_message_with_timer("Get Ready")
+	$HUD.get_ready()
 
 func game_over():
 	$Music.stop()
+	$HUD/MenuButton.hide()
 	$DeathSound.stream.loop = false
 	$DeathSound.play()
 	yield($DeathSound, "finished")
