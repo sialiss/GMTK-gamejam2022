@@ -28,9 +28,19 @@ class StepStatus:
 	extends Status
 
 	func _ready():
-		# Pick random direction
-		var direction = Vector2.RIGHT.rotated(TAU/4 * (randi()%4))
-		var new_position = host.global_position + direction*host.step_size
+		if not host.get_parent().has_node("Player"):
+			return
+		var player = host.get_node("../Player")
+
+		var player_pos = player.global_position
+
+		var direction = host.global_position.direction_to(player_pos)
+		var angle = direction.angle() + rand_range(-TAU/4, TAU/4)
+		angle = stepify(angle, TAU/4)
+		var new_position = host.global_position + Vector2.RIGHT.rotated(angle)*host.step_size
+
+		# var direction = Vector2.RIGHT.rotated(TAU/4 * (randi()%4))
+		# var new_position = host.global_position + direction*host.step_size
 
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(host, "global_position", new_position, host.step_duration)

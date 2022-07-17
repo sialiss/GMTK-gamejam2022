@@ -14,7 +14,7 @@ func _ready():
 
 func shoot(body: Node):
 	count_shot()
-	if shots_fired >= amount:
+	if shots_fired > amount:
 		return
 
 	yield(get_tree(), "physics_frame")
