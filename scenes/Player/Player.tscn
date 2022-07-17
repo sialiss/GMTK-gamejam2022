@@ -24,7 +24,7 @@ stepY = 43
 abilities = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="AbilityTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
