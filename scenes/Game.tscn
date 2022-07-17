@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=2]
+[ext_resource path="res://assets/dice/Board.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=3]
 [ext_resource path="res://sounds/fixed.mp3" type="AudioStream" id=4]
 [ext_resource path="res://scenes/Enemy/Hat/EnemyHat.tscn" type="PackedScene" id=5]
@@ -22,7 +22,6 @@ mob_scenes = [ ExtResource( 5 ), ExtResource( 9 ) ]
 layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
-modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )

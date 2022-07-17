@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Menu/Credits.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/Menu/Menu.gd" type="Script" id=4]
-[ext_resource path="res://assets/20201125__Ei8FXCL2jB.png" type="Texture" id=6]
+[ext_resource path="res://assets/dice/Board.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -89,7 +89,7 @@ layer = -1
 modulate = Color( 0.615686, 0.615686, 0.615686, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 expand = true
 
 [connection signal="go_to_menu" from="Credits" to="." method="_on_Credits_go_to_menu"]
