@@ -43,7 +43,7 @@ curve = SubResource( 1 )
 position = Vector2( -8, -8 )
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.15
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
