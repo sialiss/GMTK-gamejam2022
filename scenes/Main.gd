@@ -4,14 +4,14 @@ onready var player = $YSort/Player
 
 export(Array, PackedScene) var mob_scenes = []
 var score
+var best_score = 0
 
 func _ready():
-	# $HUD/StartButton.hide()
-	# $HUD/CreditsButton.hide()
-	# $HUD/Gameochka.hide()
-	# new_game()
 	$MenuMusic.play()
 	$Credits.hide()
+	randomize()
+	$HUD.show_game_over(best_score)
+	# $HUD._on_StartButton_pressed()
 
 # Called when the node enters the scene tree for the first time.
 
@@ -25,9 +25,18 @@ func new_game():
 	$HUD.show_message("Get Ready")
 
 func game_over():
-	$ScoreTimer.stop()
 	$MobTimer.stop()
-	$HUD.show_game_over()
+	$YSort/Player.hide()
+	
+	score = int($HUD/ScoreLabel.text)
+	if score > best_score:
+		best_score = score
+	$HUD.show_game_over(best_score)
+	
+	get_tree().call_group("enemies", "queue_free")
+	
+	$Music.stop()
+	$MenuMusic.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -48,7 +57,6 @@ func _on_MobTimer_timeout():
 
 func _on_StartTimer_timeout():
 	$MobTimer.start()
-	$ScoreTimer.start()
 
 func _on_Player_hit():
 	score += 1

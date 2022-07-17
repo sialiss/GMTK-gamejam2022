@@ -17,7 +17,7 @@ animations = [ {
 radius = 18.0
 height = 10.0001
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 collision_layer = 2
 gravity_scale = 0.0
 contacts_reported = 1

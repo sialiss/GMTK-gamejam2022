@@ -43,8 +43,6 @@ curve = SubResource( 1 )
 [node name="PathFollow2D" type="PathFollow2D" parent="YSort/MobPath2D"]
 position = Vector2( -8, -8 )
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.25
 
@@ -67,5 +65,7 @@ visible = false
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="close_game" from="HUD" to="." method="_on_HUD_close_game"]
+[connection signal="go_to_credits" from="HUD" to="." method="_on_HUD_go_to_credits"]
+[connection signal="go_to_menu" from="HUD" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="go_to_menu" from="Credits" to="." method="_on_Credits_go_to_menu"]
