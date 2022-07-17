@@ -1,11 +1,5 @@
 extends Enemy
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$AnimatedSprite.playing = true
-	var mob_types = $AnimatedSprite.frames.get_animation_names()
-	$AnimatedSprite.animation = mob_types[randi() % mob_types.size()]
-
 func set_location(location: Node2D):
 	# Set the mob's direction perpendicular to the path direction.
 	var direction = location.global_rotation + PI / 2
