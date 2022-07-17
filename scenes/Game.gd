@@ -13,7 +13,6 @@ func new_game():
 	Score.score = 0
 	$StartTimer.start()
 	$Music.play()
-	$HUD.update_score(Score.score)
 	$HUD.show_message_with_timer("Get Ready")
 
 func game_over():
@@ -23,7 +22,7 @@ func game_over():
 	# yield($DeathSound, "finished")
 	if Score.score > Score.best_score:
 		Score.best_score = Score.score
-	
+
 	# get_tree().call_group("enemies", "queue_free")
 	get_tree().change_scene_to(menu_scene)
 
@@ -44,6 +43,5 @@ func _on_StartTimer_timeout():
 	$MobTimer.start()
 
 func _on_Player_hit():
-	Score.score += 1
-	# $HUD.update_score(Score.score)
+	pass
 

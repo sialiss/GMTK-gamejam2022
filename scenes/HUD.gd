@@ -11,8 +11,8 @@ func show_message_with_timer(text):
 	$Message.show()
 	$MessageTimer.start()
 
-func update_score(score):
-	$ScoreLabel.text = str(score)
+func _process(delta):
+	$ScoreLabel.text = str(Score.score)
 
 func _on_MessageTimer_timeout():
 	$Message.hide()
