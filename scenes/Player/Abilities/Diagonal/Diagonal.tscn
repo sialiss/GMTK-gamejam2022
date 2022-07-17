@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player/Abilities/ParticleTimer.gd" type="Script" id=1]
 [ext_resource path="res://assets/dice/dice.png" type="Texture" id=2]
@@ -43,27 +43,15 @@ angle_random = 1.0
 scale_curve = SubResource( 5 )
 anim_offset = 1.0
 
-[sub_resource type="Animation" id=7]
-resource_name = "Activate"
-tracks/0/type = "method"
-tracks/0/path = NodePath("AttackArea")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "stop"
-} ]
-}
-
 [node name="OrthogonalAttackAbility" type="Node2D"]
 show_behind_parent = true
 script = ExtResource( 5 )
 timer = NodePath("ParticleTimer")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+autostart = true
 
 [node name="AttackArea" type="Area2D" parent="."]
 rotation = 0.785397
@@ -129,6 +117,4 @@ script = ExtResource( 3 )
 script = ExtResource( 1 )
 particles = [ NodePath("../OneshotParticles") ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Activate"
-anims/Activate = SubResource( 7 )
+[connection signal="timeout" from="AttackTimer" to="AttackArea" method="stop"]
