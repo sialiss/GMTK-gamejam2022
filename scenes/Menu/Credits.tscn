@@ -36,9 +36,9 @@ custom_fonts/font = SubResource( 2 )
 text = "GitHub"
 
 [node name="Camellia" type="LinkButton" parent="."]
-margin_left = 496.0
+margin_left = 480.0
 margin_top = 160.0
-margin_right = 704.0
+margin_right = 688.0
 margin_bottom = 218.0
 focus_mode = 2
 custom_fonts/font = SubResource( 5 )
@@ -70,18 +70,38 @@ custom_fonts/normal_font = SubResource( 4 )
 text = "Igrochka"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 96.0
+margin_left = 88.0
 margin_top = 160.0
-margin_right = 856.0
+margin_right = 472.0
 margin_bottom = 344.0
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center]Programming:                , och
-Art: och
-Music:            "
-text = "Programming:                , och
-Art: och
-Music:            "
+bbcode_text = "[right]Programming:
+Art:
+Music:"
+text = "Programming:
+Art:
+Music:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 688.0
+margin_top = 160.0
+margin_right = 824.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( -48, 48 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_text = ", och"
+text = ", och"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 480.0
+margin_top = 218.0
+margin_right = 616.0
+margin_bottom = 282.0
+rect_pivot_offset = Vector2( -48, 48 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_text = "och"
+text = "och"
 
 [connection signal="pressed" from="GitHub" to="." method="_on_LinkButton_pressed"]
 [connection signal="pressed" from="Camellia" to="." method="_on_Camellia_pressed"]
