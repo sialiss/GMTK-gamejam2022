@@ -7,10 +7,10 @@
 [ext_resource path="res://scenes/Player/Abilities/AttackArea.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 350 )
+extents = Vector2( 10, 400 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 350, 10 )
+extents = Vector2( 400, 10 )
 
 [sub_resource type="CanvasItemMaterial" id=3]
 particles_animation = true
@@ -48,6 +48,8 @@ show_behind_parent = true
 script = ExtResource( 1 )
 timer = NodePath("ParticleTimer")
 
+[node name="AttackTimer" type="Timer" parent="."]
+
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -62,8 +64,10 @@ shape = SubResource( 2 )
 [node name="OneshotParticles" type="Particles2D" parent="."]
 material = SubResource( 3 )
 position = Vector2( 0, 118 )
+emitting = false
 amount = 50
 lifetime = 0.83
+one_shot = true
 explosiveness = 0.83
 local_coords = false
 process_material = SubResource( 6 )
@@ -74,8 +78,10 @@ script = ExtResource( 4 )
 material = SubResource( 3 )
 position = Vector2( 0, -118 )
 rotation = 3.14159
+emitting = false
 amount = 50
 lifetime = 0.83
+one_shot = true
 explosiveness = 0.83
 local_coords = false
 process_material = SubResource( 6 )
@@ -86,8 +92,10 @@ script = ExtResource( 4 )
 material = SubResource( 3 )
 position = Vector2( -118, 0 )
 rotation = 1.57079
+emitting = false
 amount = 50
 lifetime = 0.83
+one_shot = true
 explosiveness = 0.83
 local_coords = false
 process_material = SubResource( 6 )
@@ -98,8 +106,10 @@ script = ExtResource( 4 )
 material = SubResource( 3 )
 position = Vector2( 118, 0 )
 rotation = 4.71238
+emitting = false
 amount = 50
 lifetime = 0.83
+one_shot = true
 explosiveness = 0.83
 local_coords = false
 process_material = SubResource( 6 )
@@ -109,3 +119,5 @@ script = ExtResource( 4 )
 [node name="ParticleTimer" type="Node" parent="."]
 script = ExtResource( 2 )
 particles = [ NodePath("../OneshotParticles") ]
+
+[connection signal="timeout" from="AttackTimer" to="AttackArea" method="stop"]

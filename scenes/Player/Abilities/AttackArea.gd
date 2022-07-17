@@ -1,26 +1,19 @@
 extends Area2D
 class_name AttackArea
 
+export var autostart = true
 export var damage = 1
-var waiting = true
 
 func _ready():
+	if autostart:
+		start()
 
-	# Need to wait for one frame for the collistions to be processed
-	yield(get_tree(), "physics_frame")
-	yield(get_tree(), "physics_frame")
+func harm(body: Node):
+	body.harm(damage)
 
-	for body in get_overlapping_bodies():
-		body.harm(damage)
+func start():
+	connect("body_entered", self, "harm")
+
+func stop():
+	disconnect("body_entered", self, "harm")
 	queue_free()
-
-# func _physics_process(delta):
-	# Need to wait for one frame for the collistions to be processed
-	# if waiting:
-	# 	print("Hello")
-	# 	waiting = false
-	# 	return
-	#
-	# print("Hello-hello!")
-	#
-	# queue_free()

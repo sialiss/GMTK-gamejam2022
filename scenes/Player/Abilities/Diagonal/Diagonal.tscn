@@ -7,10 +7,10 @@
 [ext_resource path="res://scenes/Player/Abilities/Ability.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 350 )
+extents = Vector2( 10, 400 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 350, 10 )
+extents = Vector2( 400, 10 )
 
 [sub_resource type="CanvasItemMaterial" id=3]
 particles_animation = true
@@ -47,6 +47,11 @@ anim_offset = 1.0
 show_behind_parent = true
 script = ExtResource( 5 )
 timer = NodePath("ParticleTimer")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+autostart = true
 
 [node name="AttackArea" type="Area2D" parent="."]
 rotation = 0.785397
@@ -100,7 +105,6 @@ script = ExtResource( 3 )
 material = SubResource( 3 )
 position = Vector2( 83.4387, 83.4385 )
 rotation = -0.785408
-scale = Vector2( 1, 1 )
 amount = 50
 lifetime = 0.83
 explosiveness = 0.83
@@ -112,3 +116,5 @@ script = ExtResource( 3 )
 [node name="ParticleTimer" type="Node" parent="."]
 script = ExtResource( 1 )
 particles = [ NodePath("../OneshotParticles") ]
+
+[connection signal="timeout" from="AttackTimer" to="AttackArea" method="stop"]
