@@ -1,14 +1,21 @@
 extends KinematicBody2D
+
+# Signals
 signal hit
 
+# Children
+onready var cube_display = $CubeDisplay/Viewport/CubeDisplay3D
+onready var ability_timer = $AbilityTimer
+
+# Exports
 export var stepX = 94
 export var stepY = 85
+export(Array, PackedScene) var abilities = []
 
-# Attack variables
-var attack_cooldown_time = 100
-var next_attack_time = 0
+# Variables
 
-onready var cube_display = $CubeDisplay/Viewport/CubeDisplay3D
+
+# States
 
 class IdleStatus:
 	extends Status
@@ -35,10 +42,10 @@ class IdleStatus:
 			host.cube_display.rotate_up()
 			MovingStatus.new(new_position).attach(host)
 
+
 class MovingStatus:
 	extends Status
 	var new_position
-	var screen_size
 
 	func _init(position):
 		new_position = position
@@ -51,19 +58,35 @@ class MovingStatus:
 		else:
 			Ticker.once(self, 0.5).then(IdleStatus.new(), "attach", [host])
 
+
+# Methods
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	IdleStatus.new().attach(self)
 	hide()
 
-func start(pos):
+# Called when the game is starting
+func start(pos: Vector2):
 	# snap position to step grid
 	global_position.x = stepify(pos.x, stepX)
 	global_position.y = stepify(pos.y, stepY)
 
 	show()
+	ability_timer.start()
 	$CollisionShape2D.disabled = false
 
+# Called when touched an enemy
 func _on_Area2D_body_entered(_body):
 	# hide() # Player disappears after being hit.
 	emit_signal("hit")
+
+func use_ability():
+	var ability_id = cube_display.get_number()
+	if ability_id == 0:
+		return
+
+	if ability_id <= abilities.size():
+		var ability = abilities[ability_id-1]
+		if ability is PackedScene:
+			ability.instance().attach(self)

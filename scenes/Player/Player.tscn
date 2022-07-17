@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://scenes/Player/Abilities/Circle/Circle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://scenes/dice/CubeDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player/Dice/CubeDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player/Abilities/Orthogonal/Orthogonal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player/Abilities/Diagonal/Diagonal.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 21.5 )
@@ -14,6 +17,10 @@ collision_mask = 2
 script = ExtResource( 2 )
 stepX = 48
 stepY = 43
+abilities = [ ExtResource( 1 ), null, null, ExtResource( 4 ), ExtResource( 5 ) ]
+
+[node name="AbilityTimer" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -49,4 +56,5 @@ collision_mask = 2
 position = Vector2( 0, 10.5 )
 shape = SubResource( 2 )
 
+[connection signal="timeout" from="AbilityTimer" to="." method="use_ability"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
