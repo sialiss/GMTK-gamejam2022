@@ -1,10 +1,15 @@
 extends Node2D
 
 onready var player = $YSort/Player
+
 var menu_scene = load("res://scenes/Menu/Menu.tscn")
-export(Array, PackedScene) var mob_scenes = []
+
+export(Dictionary) var mobs = {}
+
+var mob_bag = RNGTools.WeightedBag.new()
 
 func _ready():
+	mob_bag.set_weights(mobs)
 	new_game()
 
 func new_game():
@@ -23,12 +28,12 @@ func game_over():
 	if Score.score > Score.best_score:
 		Score.best_score = Score.score
 
-	# get_tree().call_group("enemies", "queue_free")
 	get_tree().change_scene_to(menu_scene)
 
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
-	var mob = mob_scenes[randi() % mob_scenes.size()].instance()
+	# var mob = mob_scenes[randi() % mob_scenes.size()].instance()
+	var mob = RNGTools.pick_weighted(mob_bag).instance()
 
 	# Choose a random location on Path2D.
 	var mob_spawn_location = get_node("YSort/MobPath2D/PathFollow2D")

@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Player/Abilities/ParticleTimer.gd"
 }, {
+"base": "Object",
+"class": "RNGTools",
+"language": "GDScript",
+"path": "res://addons/rngtools/RNGTools.gd"
+}, {
 "base": "Node",
 "class": "Status",
 "language": "GDScript",
@@ -61,6 +66,7 @@ _global_script_class_icons={
 "HealingArea": "",
 "OneshotParticles": "",
 "ParticleTimer": "",
+"RNGTools": "",
 "Status": "",
 "StatusMachina": "",
 "Ticker": ""
