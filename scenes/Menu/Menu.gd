@@ -8,6 +8,8 @@ func _ready():
 	$Credits.hide()
 	show_best_score()
 	update_score()
+	if OS.get_name() == "HTML5":
+		$CloseButton.hide()
 
 func show_message(text):
 	$Message.text = text
