@@ -15,7 +15,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -8, -8, 0, 0, 0, 0, 968, -8, 0, 0, 0, 0, 968, 544, 0, 0, 0, 0, -8, 544, 0, 0, 0, 0, -8, -8 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 mob_scenes = [ ExtResource( 5 ), ExtResource( 9 ) ]
 
@@ -50,22 +50,12 @@ wait_time = 0.25
 wait_time = 2.0
 one_shot = true
 
-[node name="HUD" parent="." instance=ExtResource( 6 )]
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-
-[node name="Credits" parent="." instance=ExtResource( 8 )]
-visible = false
+[node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [connection signal="hit" from="YSort/Player" to="." method="_on_Player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
-[connection signal="close_game" from="HUD" to="." method="_on_HUD_close_game"]
-[connection signal="go_to_credits" from="HUD" to="." method="_on_HUD_go_to_credits"]
 [connection signal="go_to_menu" from="HUD" to="." method="game_over"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]
-[connection signal="go_to_menu" from="Credits" to="." method="_on_Credits_go_to_menu"]

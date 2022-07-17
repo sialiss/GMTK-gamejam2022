@@ -1,46 +1,35 @@
 extends Node2D
 
+<<<<<<< Updated upstream
 onready var player = $YSort/Player
 
+=======
+var menu_scene = load("res://scenes/Menu/Menu.tscn")
+>>>>>>> Stashed changes
 export(Array, PackedScene) var mob_scenes = []
-var score
-var best_score = 0
 
 func _ready():
-	$MenuMusic.play()
-	$Credits.hide()
-	randomize()
-	$HUD.show_game_over(best_score)
-	# $HUD._on_StartButton_pressed()
-
-# Called when the node enters the scene tree for the first time.
+	new_game()
 
 func new_game():
-	score = 0
+<<<<<<< Updated upstream
 	player.start($YSort/StartPosition2D.position)
+=======
+	Score.score = 0
+	$HUD.update_score(Score.score)
+>>>>>>> Stashed changes
 	$StartTimer.start()
-	$MenuMusic.stop()
 	$Music.play()
-	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
+	$HUD.update_score(Score.score)
+	$HUD.show_message_with_timer("Get Ready")
 
 func game_over():
-	$MobTimer.stop()
-	$YSort/Player.hide()
+	Score.score = int($HUD/ScoreLabel.text)
+	if Score.score > Score.best_score:
+		Score.best_score = Score.score
 	
-	score = int($HUD/ScoreLabel.text)
-	if score > best_score:
-		best_score = score
-	$HUD.show_game_over(best_score)
-	
-	get_tree().call_group("enemies", "queue_free")
-	
-	$Music.stop()
-	$MenuMusic.play()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	# get_tree().call_group("enemies", "queue_free")
+	get_tree().change_scene_to(menu_scene)
 
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
@@ -59,14 +48,6 @@ func _on_StartTimer_timeout():
 	$MobTimer.start()
 
 func _on_Player_hit():
-	score += 1
-	$HUD.update_score(score)
+	Score.score += 1
+	$HUD.update_score(Score.score)
 
-func _on_HUD_close_game():
-	get_tree().quit()
-
-func _on_HUD_go_to_credits():
-	$Credits.show()
-
-func _on_Credits_go_to_menu():
-	$Credits.hide()
